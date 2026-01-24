@@ -66,7 +66,7 @@ fn main() {
     let series_b_sum: f64 = sum_vector_elements(&series_b_terms);
 
     // Apply scalars
-    let series_a_sum: f64 = series_a_sum * -1.0;
+    let series_a_sum: f64 = -series_a_sum;
     let series_b_sum: f64 = series_b_sum * 2.0;
 
     // Calculate the error. TODO!
