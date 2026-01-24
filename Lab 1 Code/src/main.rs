@@ -1,10 +1,6 @@
-
-
-
 // These values are pulled from eariler in the homework.
 const SERIES_A_X: f64 = -0.9;
 const SERIES_B_X: f64 = 0.9 / 2.9;
-
 
 
 fn main() {
@@ -55,6 +51,7 @@ fn main() {
     println!("Series B took {} terms.", b);
     println!();
 
+    // Clears the vectors without freeing memory so they can be re-used in the next step.
     series_a_terms.clear();
     series_b_terms.clear();
 
@@ -79,9 +76,6 @@ fn main() {
     println!("Series A: {}", series_a_sum);
     println!("Series B: {}", series_b_sum);
     println!();
-
-
-    
 }
 
 
@@ -114,20 +108,4 @@ fn get_n() -> i32 {
     let mut input: String = String::new();
     let _ = std::io::stdin().read_line(&mut input);
     input.trim().parse().unwrap()
-}
-
-
-
-
-#[test]
-fn gen_series_a_term_test() {
-    println!("{}", gen_series_a_term(4));
-}
-
-#[test]
-fn push_to_vec() {
-    let mut v: Vec<f64> = Vec::new();
-    for each in 0..10 {
-        v.push(each as f64);
-    }
 }
