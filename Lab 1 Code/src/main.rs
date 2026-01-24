@@ -1,3 +1,5 @@
+mod math;
+
 // These values are pulled from eariler in the homework.
 const SERIES_A_X: f64 = -0.9;
 const SERIES_B_X: f64 = 0.9 / 2.9;
