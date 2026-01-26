@@ -8,6 +8,7 @@ const SERIES_B_X: f64 = 0.9 / 2.9;
 pub const SERIES_A_SCALAR: f64 = -1.0;
 pub const SERIES_B_SCALAR: f64 = 2.0;
 
+
 /// Finds the sum of all elements in a vector.
 pub fn sum_vector_elements(vec: &Vec<f64>) -> f64 {
     let mut sum: f64 = 0.0;
@@ -46,4 +47,3 @@ pub fn gen_series_a_term(term_degree: i32) -> f64 {
 pub fn gen_series_b_term(term_degree: i32) -> f64 {
     SERIES_B_X.powi(2*term_degree - 1) / (2*term_degree - 1) as f64
 }
-

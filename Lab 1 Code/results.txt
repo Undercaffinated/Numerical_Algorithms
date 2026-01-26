@@ -1,0 +1,10 @@
+To reach err < 1e-10...
+Series A took 164 terms.
+Series B took 9 terms.
+
+n: 
+
+With 1 terms, these are the results:
+Series A - Value: 0.9, Error: -0.25814611382760533
+Series B - Value: 0.6206896551724138, Error: 0.021164230999980882
+

@@ -1,3 +1,6 @@
+// main.rs
+
+
 mod math;
 use math::*;
 
@@ -15,7 +18,6 @@ fn main() {
     println!("Series A took {} terms.", required_terms_a);
     println!("Series B took {} terms.", retuired_terms_b);
     println!();
-
 
     // From here on, we will be working with a user-specified number of terms, n.
     let n: i32 = get_n();
@@ -39,12 +41,13 @@ fn main() {
     let series_a_sum: f64 = -series_a_sum;
     let series_b_sum: f64 = series_b_sum * 2.0;
 
-    // Calculate the error. TODO!
+    // Calculate the error
+    let series_a_error: f64 = 1.9_f64.ln() - series_a_sum;
+    let series_b_error: f64 = 1.9_f64.ln() - series_b_sum;
 
     println!("With {} terms, these are the results:", n);
-    println!("ln(1.9) = {}", 1.9_f64.ln());
-    println!("Series A: {}", series_a_sum);
-    println!("Series B: {}", series_b_sum);
+    println!("Series A - Value: {}, Error: {}" , series_a_sum, series_a_error);
+    println!("Series B - Value: {}, Error: {}" , series_b_sum, series_b_error);
     println!();
 }
 
