@@ -1,54 +1,26 @@
-// These values are pulled from eariler in the homework.
-const SERIES_A_X: f64 = -0.9;
-const SERIES_B_X: f64 = 0.9 / 2.9;
+// main.rs
+
+
+mod math;
+use math::*;
 
 
 fn main() {
-    let ln_one_point_nine = 1.9_f64.ln();
-
-    // Get a value for n. We will assume the user knows how to properly use the code.
-    // The number of Taylor Polynomial Terms we will be using.
-    let n: i32 = get_n();
-    println!();
-
-    // Allocate space for the resutls
+    // Allocate space for the taylor series terms' values.
     let mut series_a_terms: Vec<f64> = Vec::new();
     let mut series_b_terms: Vec<f64> = Vec::new();
 
-    // Use a loop to try different values of n to find when error < 1e-10
-    // In theory, we could use a binary search, not a linear search, but there aren't bonus
-    // points for optimization on this assignment.
-    let mut a: i32 = 1;
-    loop {
-        series_a_terms.push(gen_series_a_term(a));
-
-        if (ln_one_point_nine + sum_vector_elements(&series_a_terms)).abs() < 1e-10 {
-            break;
-        }
-
-        else {
-            a += 1;
-            continue;
-         }
-    }
-
-    let mut b: i32 = 1;
-    loop {
-        series_b_terms.push(gen_series_b_term(b));
-
-        if (ln_one_point_nine - 2.0*sum_vector_elements(&series_b_terms)).abs() < 1e-10 {
-            break;
-        }
-
-        else {
-            b += 1;
-            continue;
-         }
-    }
+    // Determine the minimum number of terms required to reach err < 1e-10 for both series.
+    let required_terms_a: i32 = get_required_terms(&mut series_a_terms, gen_series_a_term, SERIES_A_SCALAR);
+    let retuired_terms_b: i32 = get_required_terms(&mut series_b_terms, gen_series_b_term, SERIES_B_SCALAR);
 
     println!("To reach err < 1e-10...");
-    println!("Series A took {} terms.", a);
-    println!("Series B took {} terms.", b);
+    println!("Series A took {} terms.", required_terms_a);
+    println!("Series B took {} terms.", retuired_terms_b);
+    println!();
+
+    // From here on, we will be working with a user-specified number of terms, n.
+    let n: i32 = get_n();
     println!();
 
     // Clears the vectors without freeing memory so they can be re-used in the next step.
@@ -69,38 +41,18 @@ fn main() {
     let series_a_sum: f64 = -series_a_sum;
     let series_b_sum: f64 = series_b_sum * 2.0;
 
-    // Calculate the error. TODO!
+    // Calculate the error
+    let series_a_error: f64 = 1.9_f64.ln() - series_a_sum;
+    let series_b_error: f64 = 1.9_f64.ln() - series_b_sum;
 
     println!("With {} terms, these are the results:", n);
-    println!("ln(1.9) = {}", 1.9_f64.ln());
-    println!("Series A: {}", series_a_sum);
-    println!("Series B: {}", series_b_sum);
+    println!("Series A - Value: {}, Error: {}" , series_a_sum, series_a_error);
+    println!("Series B - Value: {}, Error: {}" , series_b_sum, series_b_error);
     println!();
 }
 
 
 
-
-/// Finds the sum of all elements in a vector.
-fn sum_vector_elements(vec: &Vec<f64>) -> f64 {
-    let mut sum: f64 = 0.0;
-
-    for each in vec {
-        sum += each;
-    }
-
-    sum
-}
-
-/// Calculates the value of the nth term of Series A
-fn gen_series_a_term(term_degree: i32) -> f64 {
-    SERIES_A_X.powi(term_degree) / term_degree as f64
-}
-
-/// Calculates the value of the nth term of Series B
-fn gen_series_b_term(term_degree: i32) -> f64 {
-    SERIES_B_X.powi(2*term_degree - 1) / (2*term_degree - 1) as f64
-}
 
 /// Gets an integer n from the user. Will panic if the input cannot be parsed.
 fn get_n() -> i32 {
