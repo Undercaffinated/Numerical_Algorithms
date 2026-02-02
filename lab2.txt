@@ -1,0 +1,11 @@
+Nathan Howell
+Lab 2 - Numerical Algorithms
+Feb 14, 2026
+
+1. There is exactly one root. Since the derivative is always positive, the function increases everywhere, meaning there is no way for the curve to "double back" and cross the x axis again.
+
+2. We have the bisection and newton methods we are about to implement as well as plotting and good ol' guess-and-check.
+
+3. To determine if a root exists on [1, 2], since we know the function is always increasing, we can just try f(1) and f(2). If f(1) is negative and f(2) is positive, there must be a root. Indeed, since f(1) = -7 and f(2) = 16, there is a root on [1,2].
+
+4. 
