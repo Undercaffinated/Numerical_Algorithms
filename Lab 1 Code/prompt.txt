@@ -1,0 +1,45 @@
+Original URL: https://web.math.utk.edu/~vasili/371/LABS/Lab01.Taylor.html
+
+M371-Alexiades
+                        Lab 1:  Taylor Series
+
+Consider the problem of approximating ln(1.9) with ten digits of accuracy, using either of the following Taylor series:
+    (A)   ln(1−x) = −∑ xk/k ,   −1≤x<1
+    (B)   ln[(1+x)/(1−x)] = 2 ∑ x2k−1/(2k-1) ,   −1<x<1
+      ( both sums run from k=1 to infinity )
+Write out a few terms to get a sense what each series is like.
+Note that ln(1.9) is approximately 0.641853886172
+
+1. To get ln(1.9), what value of x do you have to use in series (A) ? in series (B) ?
+
+2. Which series do you expect to be more efficient for computing ln(1.9) ? (...before you do the rest !)
+
+3. Write a code that computes the sum of N terms in series (A), for specified input N .
+  Your code should print out (on one line):
+      • the value of the input N (number of terms),
+      • the value of the sum obtained from the series,
+      • the error.
+
+4. Modify your code to do the same for series (B) [ comment out and modify ].
+
+5. How many terms do you need to find ln(1.9) with 10 digits accuracy using series (A) ?   series (B) ?
+
+6. Which series is more efficient for computing ln(1.9) ? Briefly explain why.
+
+Create a PLAIN TEXT file "Lab1.txt" containing:
+	  Name: YOUR NAME
+	  Lab : 1 	Date:
+	  ==============================================================
+	(a) answers to 1, 2 ;
+
+	  ==============================================================
+	(b) for each series: answer to 5 and what your code printed for that N
+	  A: 
+	  B:
+
+	  ==============================================================
+	(c) answer to 6 ;
+
+	  ========================================================
+	- your code (cleaned up!)
+Submit the file Lab1.txt on Canvas (in plain text, no formating, no attachments please! )
