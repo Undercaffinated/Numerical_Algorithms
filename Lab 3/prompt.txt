@@ -1,0 +1,57 @@
+https://web.math.utk.edu/~vasili/371/LABS/Lab03.linSys.html
+
+M371 - Alexiades
+                  Lab 3:  Linear Systems
+          [ For each lab, create a new dir (Lab#) and work in it ]
+At the doctor's advice, you are supposed to consume 100% of the
+Recommended Daily Allowance (RDA) of protein, carbohydrate and 
+calcium, 80% of fat, and 75% of salt. You select 5 food items
+for the day and you need to figure out how many servings of each
+you need to eat to stay with your diet.  The nutritional content
+of the foods you selected, per serving, is as follows:
+
+			% of RDA per serving
+
+	Food    protein  carbohydrate  fat  salt  calcium
+	----    -------  ------------  ---  ----  -------
+	 A	   0         15        10    10     15
+	 B	  30         20        20    10     20
+	 C	  20         25        10    20     15
+	 D	  30         15        30    10     20
+	 E	  10         15         0    20      5
+
+1. Set up the problem as a linear system  Ax=b.
+   Try to arrange the matrix A so that no pivoting will be 
+   necessary, if you can.
+
+2. Use Matlab/Octave to find the LU factorization of A:  [L,U]=lu(A) .
+   (>> diary on  to record your work in file "diary",
+    specify format short for readability).
+ 
+   Is L really lower triangular ?  If not, use 
+		[L,U,P] = lu(A)
+   to find the necessary permutation matrix P, then
+   find the LU factorization of the matrix PA.
+   Is L lower triangular now ?
+
+3. Use Matlab/Octave to solve your system Ax=b.
+   Round the values to integers. Is this a feasible diet ?  Why ?
+   What can you do to get a proper diet for the day ?
+
+4. Solve the system with forward and backward substitutions,
+   in Matlab/Octave, using L and U appropriately.
+   Does the solution agree with the one found in 3. ?
+ 
+
+Submit, all in a single text file "Lab3.txt" (can use Matlab notation for matrices): 
+	a. Your matrix A and vector b from 1.
+	--------------------------------------------
+	b. The L and U from 2, and if for A or for PA.
+	--------------------------------------------
+	c. Answers to 3, unrounded and rounded.
+	--------------------------------------------
+	d. What systems you solved, in symbols (like: Ly = b, ....), 
+	   and the solution, from 4.
+	--------------------------------------------
+ 
+Please label the parts (a. , b. , ....) and demarcate by separator lines to make the file readable...
