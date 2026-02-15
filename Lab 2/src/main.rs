@@ -4,6 +4,12 @@ const MAXIMUM_ITERATIONS: i32 = 50;
 fn main() {
     println!("{:.10}", bisect(1.0, 2.0, 1, f));
     println!("{:.10}", newton(2.0, f, f_prime, 1));
+
+    println!("{:.10}", bisect(98.9, 99.1, 1, t));
+
+    println!("{:.10}", newton(99.0, t, t_prime, 1));
+    println!("{}", t(99.0));
+    println!("{}", t_prime(99.0));
 }
 
 /// Implementation of Bisection Method
@@ -60,6 +66,14 @@ fn f(x: f64) -> f64 {
 
 fn f_prime(x: f64) -> f64 {
     3.0 * x.powi(2) + 4.0 * x + 10.0
+}
+
+fn t(x: f64) -> f64 {
+    x - x.tan()
+}
+
+fn t_prime(x: f64) -> f64 {
+    1.0 - ( 1.0 / x.cos()).powi(2)
 }
 
 #[test]
